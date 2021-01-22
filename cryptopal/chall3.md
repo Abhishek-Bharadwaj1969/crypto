@@ -12,7 +12,7 @@ def xoring(a,b):
 	for i in range(len(s1)):
 		s+=chr(s1[i]^s2[i])
 	return binascii.hexlify(s.encode()).decode()
-ab="abcdefghijklmnopqrstuvwxyz"
+ab="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 p=""
 def fun2(o):
 	return binascii.hexlify(o.encode())
