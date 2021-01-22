@@ -1,2 +1,2 @@
 Simply refer the ascii table and did it and also verified using chr()
-
+for example ord('a') is 97
