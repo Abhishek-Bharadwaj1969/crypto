@@ -1,0 +1,7 @@
+so the given string is hex so initially we need to encode it to bytes
+so as i told earlier i used the module binascii which consists of the packs like unhexlify and b2_base64 
+unhexlify:it is sort of function which converts the given hex string into bytes
+b2_base64: it converts the bytes to base-64
+>>> from binascii import b2a_base64,unhexlify
+>>> b2a_base64(unhexlify('72bca9b68fc16ac7beeb8f849dca1d8a783e8acf9679bf9269f7bf'))
+flag is :'crypto/Base+64+Encoding+is+Web+Safe/\n'
