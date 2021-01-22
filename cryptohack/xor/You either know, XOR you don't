@@ -1,0 +1,17 @@
+so here we have the flag format as "crypto{" as we have seen earlier so we need to use associative and make out
+so we ge ```key as myxorke and we can add the character y to make it complete``` 
+```s="0e0b213f26041e480b26217f27342e175d0e070a3c5b103e2526217f27342e175d0e077e263451150104"
+q=int(s,16)
+print(q)
+print(len(s))
+#p=s.decode('hex')
+q=bytes.fromhex(s)
+sr="myxorkey"*7
+print(len(sr))
+p=""
+for i in range(42):
+	p+=chr(q[i]^ord(sr[i]))
+print(p)```
+
+
+
