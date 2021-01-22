@@ -1,7 +1,7 @@
 so we have given a hex string we need to extract the data
 so i used binascii
 
-import binascii
+```import binascii
 a="73626960647f6b206821204f21254f7d694f7624662065622127234f726927756d"
 c=binascii.unhexlify(a)
 for i in range(256):
@@ -10,6 +10,6 @@ for i in range(256):
 	for j in c:
 		p+=chr(j^i)
 	if "crypto" in p:
-		print(p)
+		print(p)```
     
 
