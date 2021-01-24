@@ -1,7 +1,8 @@
 so here we have to find the the key and the text 
 so i did the same by using binascii
 as for convenience i have made some functions in python
-``` import binascii
+``` 
+import binascii
 st="1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
 def fun1(a):
 	return binascii.unhexlify(a)
