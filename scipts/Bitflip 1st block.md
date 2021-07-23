@@ -3,7 +3,7 @@
 1. Just xoring the byte required with iv and the original byte 
 2. from that we get desired byte just append it and decrypt
 
-```python=
+```py
 #single block
 
 from Crypto.Cipher import AES
@@ -34,9 +34,6 @@ iv1=iv1[:i]+bytes([desired_byte])+iv1[i+1:]
 d1=AES.new(key,AES.MODE_CBC,iv1).decrypt(e1)
 
 print(unpad(d1,16))
-
-
-
 
 
 ```
