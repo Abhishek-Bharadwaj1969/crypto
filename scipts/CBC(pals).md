@@ -1,6 +1,6 @@
 # CBC-Bitflip(cryptopals)
 
-```python=
+```py
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad
 from Crypto.Random import get_random_bytes
