@@ -7,7 +7,7 @@
 3.Counter is one of the  widely used  module for CTR mode implementation it returns a object which is used for passing counter in AES object 
 
 
-```python=
+```py
 
 from Crypto.Cipher import AES
 from Crypto.Util import Counter
