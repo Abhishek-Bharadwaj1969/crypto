@@ -1,10 +1,10 @@
-# CTR-Bitflip(cryptopals)
+# CTR-Bitflip
 
 1.This is much more easier than CBC-Bitflip since we dont have any iv innvolved and the block-encryption is directly xored with plain text to get ciphertext and vice-versa
 
 2.Encrypt the required payload and quote the escaping characters and do the xor and append it and decrypt it. send it to oracle or decrypt function here to get the flag or access
 
-```python=
+```py
 from Crypto.Cipher import AES
 from Crypto.Util import Counter
 from struct import *
