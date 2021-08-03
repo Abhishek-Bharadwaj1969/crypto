@@ -1,6 +1,6 @@
 # PCBC using ECB
 
-```python=
+```py
 from Crypto.Cipher import AES
 from os import urandom
 from pwn import *
