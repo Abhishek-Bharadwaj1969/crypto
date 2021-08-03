@@ -1,10 +1,12 @@
-# ECB-Byte-Attack(Easy)
+# ECB-Byte-Attack
 
 ## Approach : 
 1. so initially we need to find the length of block which was `flag_length()` function
 2. for suppose our flag length is 44 i.e 32+12 and we need to attack bascially for those remaining bytes which was done at `required_blocks()` 
 3. just simulate the byte-atack scenerio to get the required 
-```python=
+
+```py
+
 from Crypto.Cipher import AES
 from string import printable
 from base64 import b64decode
