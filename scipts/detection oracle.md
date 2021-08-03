@@ -1,7 +1,7 @@
 # AES(ECB/CBC detection )[Cryptopals]
 
 
-```python=
+```py
 from os import urandom
 import random 
 from Crypto.Cipher import AES
