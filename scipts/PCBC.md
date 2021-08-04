@@ -4,7 +4,7 @@
 from Crypto.Cipher import AES
 from os import urandom
 from pwn import *
-
+from binascii import hexlify as hex
 pt=urandom(32)
 key=urandom(16)
 iv=urandom(16)
@@ -32,7 +32,7 @@ def decrypt(ct,key=key,iv=iv):
     ct0=block[0]
     aes=AES.new(key,AES.MODE_ECB)
     internal=aes.decrypt(ct0)
-    pt0=xor(ct0,iv)
+    pt0=xor(internal,iv)
     print("for 2nd block of decryption")
     ct1=block[1]
     aes=AES.new(key,AES.MODE_ECB)
@@ -42,8 +42,9 @@ def decrypt(ct,key=key,iv=iv):
 
     return pt0+pt_final
 
-print(a)
+print(hex(pt)) # the plain text input 
 ct=encrypt()
-print(ct)
-print(decrypt(ct))
+print(hex(ct))
+print(hex(decrypt(ct)))
+print(hex(decrypt(ct)) == hex(pt))
 ```
