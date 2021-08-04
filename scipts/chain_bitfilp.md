@@ -8,7 +8,7 @@
 6. But as said flipping the byte of iv(ciphertext e1 in this implementation) scrambles the plain text
 7. so i stored the unchanged ciphertext in `k` and then bruted for the flipped character 
 
-```python=
+```py
 from Crypto.Cipher import AES
 
 from Crypto.Util.Padding import pad, unpad
