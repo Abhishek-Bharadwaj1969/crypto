@@ -2,8 +2,7 @@
 
 ## Approach : 
 1. so initially we need to find the length of block which was `flag_length()` function
-2. for suppose our flag length is 44 i.e 32+12 and we need to attack bascially for those remaining bytes which was done at `required_blocks()` 
-3. just simulate the byte-atack scenerio to get the required 
+2. just simulate the byte-atack scenerio to get the required 
 
 ```py
 
