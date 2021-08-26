@@ -13,9 +13,17 @@ from Crypto.Cipher import AES
 
 from Crypto.Util.Padding import pad, unpad
 
+from string import printable
+
+from pwn import *
+
+from Crypto.Util.number import *
+
 iv=bytes(16)
 
 key=bytes(16)
+
+
 
 def blocks(array):
     return [array[i:i+16] for i in range(0, len(array), 16)]
@@ -28,7 +36,6 @@ required = 'Buy 1000 lots of wafflee'.encode()
 
 e1=AES.new(key,AES.MODE_CBC,iv).encrypt(blocks(pt)[0])
 
-k=e1
 
 a=blocks(pt)[1]
 
@@ -40,22 +47,24 @@ idx=int(input("Enter the index of byte to be flipped:"))
 
 assert idx<=15
 
-desired=e1[idx] ^ a[idx] ^ ord(flip_byte)
+desired=xor(e1[idx],a[idx],ord(flip_byte[:-1]))
+
+desired=bytes_to_long(desired)
 
 e1=e1[:idx]+bytes([desired])+e1[idx+1:]
 
 d2=AES.new(key,AES.MODE_CBC,e1).decrypt(e2)
 
-r=blocks(pt)[0]
+d1=AES.new(key,AES.MODE_CBC,iv).decrypt(e1)
 
-for i in range(256):
-	if e1[:idx]+bytes([i])+e1[idx+1:] ==k :
-		p=i
+iv1=xor(blocks(pt)[0],d1,iv)
 
-original_ct=e1[:idx]+bytes([p])+e1[idx+1:]
+d1=AES.new(key,AES.MODE_CBC,iv1).decrypt(e1)
 
-d1=AES.new(key,AES.MODE_CBC,iv).decrypt(original_ct)
 
 print(unpad(d1+d2,16))
+
+
+
 
 ```
