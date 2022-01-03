@@ -1,4 +1,3 @@
-```py
 from pwn import *
 from Crypto.Util.Padding import unpad
 
