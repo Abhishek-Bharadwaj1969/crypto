@@ -1,3 +1,4 @@
+```py
 from pwn import *
 from Crypto.Util.Padding import unpad
 
@@ -52,3 +53,4 @@ ct = bytes.fromhex(ct)
 
 flag = poc(ct, iv)
 print(flag)
+```
