@@ -13,8 +13,8 @@ host,port='gc1.eng.run',32001
 iv = '28381f47d0097c7765468968179a722e'
 iv = bytes.fromhex(iv)
 
-def poc(ct,iv=iv):
-    r = remote(host,port)
+def padding_oc(ct,iv=iv):
+    io = remote(host,port)
     block_number = len(ct)//16
     final = b''
     for i in range(block_number, 0, -1):
@@ -34,12 +34,12 @@ def poc(ct,iv=iv):
                 brute[j-1] = value
 #-------------------------- appending the control block to cipher block for decrytion ----------------------------------
                 concat_blocks = bytes(brute) + current_ct_block
-                if(server(concat_blocks,r)):
+                if(server(concat_blocks,io)):
 #----------------------------------------------------- pn[i]= 1 ⊕ cn-1[i] ⊕ c'[i] -----------------------------------
                     curr_plain[-padding_byte] = brute[-padding_byte] ^ prev_ct_block[-padding_byte] ^ padding_byte #(c'[k] is when we sent block and byte concatenated )
 #------------------------------------------------------ pn[i] = 2 ⊕ cn-1[i] ⊕ c'[i] c'-->control ------------------                    
-                    for k in range(1, padding_byte+1):
-                        brute[-k] = padding_byte+1 ^ curr_plain[-k] ^ prev_ct_block[-k] 
+                    for p in range(1, padding_byte+1):
+                        brute[-p] = padding_byte+1 ^ curr_plain[-p] ^ prev_ct_block[-p] 
                     break
         final = bytes(curr_plain) + bytes(final)
     return unpad(final,16)
