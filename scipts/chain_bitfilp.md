@@ -47,7 +47,7 @@ idx=int(input("Enter the index of byte to be flipped:"))
 
 assert idx<=15
 
-desired=xor(e1[idx],a[idx],ord(flip_byte[:-1]))
+desired=xor(e1[idx],a[idx],ord(flip_byte))
 
 desired=bytes_to_long(desired)
 
